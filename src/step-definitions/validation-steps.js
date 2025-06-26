@@ -1,16 +1,19 @@
 import { Then } from "@wdio/cucumber-framework";
 import { page } from "../po";
-
-//TODO archivo con comparador equals y contains
-Then("I should see the error message {string}", async (errorMessage) => {
-  const actualMessage = await page("login").getErrorMessageText();
-  return expect(actualMessage).toContain(errorMessage);
-});
+import { compareText } from "./utils/compare-text";
 
 Then(
-  "I should see {string} page title in inventory page",
-  async (expectedTitle) => {
+  "I should see an error message {string} {string}",
+  async (shouldBeParam, errorMessage) => {
+    const actualMessage = await page("login").getErrorMessageText();
+    return compareText(actualMessage, errorMessage, shouldBeParam);
+  }
+);
+
+Then(
+  "I should see page title in inventory page {string} {string}",
+  async (shouldBeParam, expectedTitle) => {
     const actualTitle = await page("inventory").getPageTitle();
-    return expect(actualTitle).toEqual(expectedTitle);
+    return compareText(actualTitle, expectedTitle, shouldBeParam);
   }
 );
