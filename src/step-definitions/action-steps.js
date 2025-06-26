@@ -6,7 +6,7 @@ Given("I open {string} page", async (pageName) => {
 });
 
 When(
-  "I enter {string} and {string} in the login form",
+  /^I enter (.+) and (.+) in the login form$/,
   async (username, password) => {
     return await page("login").enterCredentials(username, password);
   }
