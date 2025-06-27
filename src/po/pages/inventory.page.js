@@ -6,7 +6,7 @@ class InventoryPage extends BasePage {
   }
 
   get pageTitle() {
-    return $(".app_logo");
+    return $("//div[@class='app_logo']");
   }
 
   async getPageTitle() {

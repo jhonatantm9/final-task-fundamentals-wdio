@@ -13,18 +13,18 @@ class LoginPage extends BasePage {
    */
   input(name) {
     const selectors = {
-      username: "#user-name",
-      password: "#password",
+      username: "//input[@id='user-name']",
+      password: "//input[@id='password']",
     };
     return $(selectors[name.toLowerCase()]);
   }
 
   get loginButton() {
-    return $("#login-button");
+    return $("//input[@id='login-button']");
   }
 
   get errorMessage() {
-    return $("h3[data-test='error']");
+    return $("//h3[@data-test='error']");
   }
 
   async enterCredentials(username, password) {
