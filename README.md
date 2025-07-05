@@ -1,8 +1,8 @@
 # Final Task - Automated testing in JavaScript with WebdriverIO
 
-This is my implemented solution/project for the final task for the course "[Foundamentals] Automated Testing in JavaScript". The project corresponds to an automated test suite using different tools like WebdriverIO, CucumberJS and Allure.
+This is my implemented solution/project for the final task for the course "[Fundamentals] Automated Testing in JavaScript". The project corresponds to an automated test suite using different tools like WebdriverIO, CucumberJS and Allure.
 
-During this course we learnt many concepts of Automated testing, including different kind of test that can be automated, tools used nowadays form automation testing, and then focusing more in UI testing, we dove into WebdriverIO framework and Cucumber as our main tools for testing automation.
+During this course we learnt many concepts of Automated testing, including different kinds of test that can be automated, tools used nowadays for automation testing, and then focusing more on UI testing. We dove into WebdriverIO framework and Cucumber as our main tools for testing automation.
 
 ## 🌍 Languages | Idiomas
 
@@ -19,7 +19,7 @@ During this course we learnt many concepts of Automated testing, including diffe
 
 ## Task description
 
-> Note: This is not the literal task, but a description to give context about what was needed to be done (paraphrasing).
+> Note: This is not the literal task, but a description to give context about what was needed to be done.
 
 Create three automated tests using the page [https://www.saucedemo.com/](https://www.saucedemo.com/)
 
@@ -50,11 +50,11 @@ Create three automated tests using the page [https://www.saucedemo.com/](https:/
 - Enter password as secret sauce.
 - Click on Login and validate the title “Swag Labs” in the dashboard.
 
-The task also stated to use *XPath* selectors and a data provider.
+**The task also stated to use *XPath* selectors and a data provider.**
 
 ## Tools
 
-This testing automation project was made in Javascript using the following tools/libraries:
+This project was made in Javascript using the following tools/libraries:
 
 - WebdriverIO (v9.16.1)
 - Cucumber plugin (v9.16.0)
@@ -64,13 +64,13 @@ This testing automation project was made in Javascript using the following tools
 
 ## Execution and Structure of the project
 
-### Structutre of the solution
+### Structure of the solution
 
 As stated before, this project is an automated test suite which uses a set of tools in order to create a robust and scalable test framework.
 
-This project was depeloved using the Page Object Model (POM) pattern which aims to separate the logic of the interaction with the DOM from the steps defined in the different test scenarios.
+This project was developed using the Page Object Model (POM) pattern which aims to separate the logic of the interaction with the DOM from the steps defined in the different test scenarios.
 
-Here’s a visual breakdown of the folder hierarchy:
+Here's a visual breakdown of the folder hierarchy:
 
 ```text
 project-root/
@@ -108,7 +108,7 @@ npm test
 
 If you want to see an HTML report created by Allure, you can go into the folder `artifacts/allure-reports` where you can find the reports of each of the executions. Inside each folder you can find an `index.html` that you can open in a web browser to review the results of the tests.
 
-The reports are generated through a wdio hook that runs once all the tests for each of the features have been completed.
+The reports are generated through a WDIO hook that runs once all the tests for each of the features have been completed.
 
 > Note: Each time you run the code (using `npm test`), a **new** folder will be generated creating a new report. These folders are named with the **timestamp** of when the tests were run.
 
@@ -118,13 +118,13 @@ The reports are generated through a wdio hook that runs once all the tests for e
 
 ### Concepts learned from this project
 
-Although it may sound obvious, one of the things I learned while developing this suite was how to work with **WebdriverIO** and **CucumberJS**. I am putting them together because for building the tests of the project both technologies went hand in hand.
+Although it may sound obvious, one of the things I learned while developing this suite was how to work with **WebdriverIO** and **CucumberJS**. I am putting them together because for building the tests of the project, both technologies went hand in hand.
 
-About Cucumber, I gain understanding on the keywords it brings, what are they for and why is BDD used in developing teams. With WDIO I learned how to implement those features or behavior defined by the tests in Cucumber in order to create automated tests. I had the opportunity to work with some methods to interact with web elements, define hooks to execute actions at a specific point of the tests lifecycle and work with the in-built assertions of the framework.
+About Cucumber, I gained an understanding on the keywords it brings, what are they for and why is BDD used in developing teams. With WDIO I learned how to implement those features or behavior defined by the tests in Cucumber in order to create automated tests. I had the opportunity to work with some methods to interact with web elements, define hooks to execute actions at a specific point of the tests lifecycle and work with the in-built assertions of the framework.
 
-Another concept I applied on the project was the use of the Page Object Model (POM) pattern when building tests. The idea of this approach is to represent the different pages of an application into classes and encapsulate the logic of the interaction with the web elements present in those pages in those classes. Some of the advantages of this pattern are that it improves reusability and maintainability, and also reduces the dependency between tests and the underlying UI structure. Personally, one of the things I liked the most of working with this pattern was the directories' organization of the page objects, because you have each page in a separated class and even a distribution of components in different classes which resembles how component-based frameworks are used to build software applications.
+Another concept I applied on the project was the use of the Page Object Model (POM) pattern when building tests. The idea of this approach is to represent the different pages of an application into classes and encapsulate the logic of the interaction with the web elements present in those pages in those classes. Some of the advantages of this pattern are that it improves reusability and maintainability, and also reduces the dependency between tests and the underlying UI structure. Personally, one of the things I liked the most of working with this pattern was the directories organization for the page objects, because you have each page in a separated class and you can even have a distribution of components in different classes which resembles how component-based frameworks are used to build software applications.
 
-Finally, the last tool which I learned was Allure which allows you to create different reports for the testing results. With allure, I was able to generate an HTML report of the tests run. This reports are very useful because they provide an unified place where you can see the results of the execution of all the tests, and allure allows to view each test made with its details in case you need to search for more specific information. The reports of the project are creating using a hook from wdio which tells allure to create a new record each time all test has completed.
+Finally, the last tool which I learned was Allure which allows you to create different reports for the testing results. With Allure, I was able to generate an HTML report of the tests run. These reports are very useful because they provide an unified place where you can see the results of the execution of all the tests, and allure allows to view each test made with its details in case you need to search for more specific information. The reports of the project are creating using a WDIO hook that tells allure to create a new record each time all test has completed.
 
 ### My biggest challenges of this project
 
@@ -132,24 +132,34 @@ There were two main issues I faced when implementing the test suit which I will 
 
 #### 1. **Deletions on inputs:**
 
-Inside two of the scenarios I created, there is one steps that requires to delete the values of input elements after first typing some texts. With the action of deleting I faced a problem, because even though WDIO has a function `clearValue`, designed for this purpose, when I executed the tests, it seems like it didn't work. When running the tests in headed mode, the steps of clearing deleted all characters from the inputs, however when the next step was about to be executed, the fields were filled again with the same information that was just erased.
+Inside two of the scenarios I created, there is one step that requires to delete the values of input elements after first typing some texts. With the action of deleting I faced a problem, because even though WDIO has a function `clearValue`, designed for this purpose, when I executed the tests, it seems like it didn't work. When running the tests in headed mode (viewing in the browser each step), the clearing steps deleted all characters from the inputs, however when the next step was about to be executed, the fields were filled again with the same information that was just erased.
 
-To fix the problem I tried different solutions, using the `waitUntil` and `pause` functions to hold on until the fields' values were empty, sending JavaScript events to clear the input elemets, and other changes in the implementation of the steps, but none of them worked and the problem was still there.
+To fix the problem I tried different solutions, using the `waitUntil` and `pause` functions to hold on until the fields' values were empty, sending JavaScript events to clear the input elements, and other changes in the implementation of the steps, but none of them worked and the problem was still there.
 
 The final solution which finally worked was to use the `keys` function and send a series of *Backspaces* to delete all the characters previously typed. This fix may not be the most optimal, but it can simulate quite well the interaction of a real user when deleting an input field.
 
 #### 2. **Generate HTML allure reports**
 
-In this case there were two small challenges (as a manner of saying), one of them was that it was my very first time using the tool and the other was at the moment of generating the reports.
+This was my very first time using Allure (and a HTML test report tool), so it was a path full of trial and error, learning the basics of the tool and how to integrate it into the project.
 
-For the first one, fortunately, WebdriverIO has a plugin with allure which makes it easier to use and the documentation provides enough information to implement, at least the basics of generating reports. So, it was more of a bunch of tries writing and rewriting code and the reports started generating.
+Fortunately, WebdriverIO has a plugin with allure and the documentation provides enough information to implement, the essential code to generate the first reports. All of this making it easier to implement.
 
-After the first reports started generating, a new problem appeared, the reports were showing an error on one hook every time the tests run. Because the reports were being generated by *onComplete* hook, at first I tought this was the problem, however, looking in the web I found a Github discussion in which an user stated that a similar problem to the one I was having, could be caused by mocha hooks that were being executed even though you never write them. Thanks to that user I fixed the problem.
-
-*(You can see the discussion [here](https://github.com/orgs/allure-framework/discussions/2614)*)
+The aspects that took most of my time were: configuring Allure to be compatible with CucumberJS as the test runner, and adding the code to take screenshots when a test fails. At the end, the project includes the generation of reports automatically, showing screenshots for failed tests or failed tries inside a specific test.
 
 ## Results
 
 At the end of the project, a functional and structured automated test suite was successfully implemented, capable of correctly validating the login flow in the Saucedemo webpage.
 
 The tests are executed successfully using WebdriverIO and Cucumber, and the results can be visualized through reports generated by Allure.
+
+Here you can see some screenshots of the project.
+> (These are reference images, created by making the test fail on purpose and may not coincide with the real results generated when running the repo code).
+
+![Screenshot of execution of the tests in the browsers](/docs/images/tests-execution.png)
+*In this image you can see the execution of the automated tests in two browsers (Edge & Firefox).*
+
+![Screenshot of overview tab in the Allure report](/docs/images/report-overview.png)
+*The picture shows an Allure report generated after the tests, specifically the Overview tab.*
+
+![Screenshot of behaviors page](/docs/images/report-behaviors.png)
+*The screenshot shows the Behavior tab of the report where you can see with more details each test and if a test fails, an attached image can be observed.*
